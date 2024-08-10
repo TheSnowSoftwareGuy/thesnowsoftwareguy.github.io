@@ -190,8 +190,8 @@ const FinancialDataVisualization: React.FC = () => {
   ];
 
   const evEbitdaData: EvEbitdaDataItem[] = [
-    { category: "High Variability", multiple: 8.42 },
-    { category: "Low Variability", multiple: 15.44 },
+    { category: "High Variability", multiple: 7.59 },
+    { category: "Low Variability", multiple: 15.75 },
     { category: "Non-stabilized Example", multiple: 9.5 },
     {
       category: "Potential After Stabilization",
@@ -507,82 +507,86 @@ const FinancialDataVisualization: React.FC = () => {
         )}
 
         {activeTab === "theory" && (
-          <>
-            <h3>EV/EBITDA in Weather-Affected Services</h3>
-            <p>
-              Revenue stabilization can significantly impact a company's
-              valuation, particularly for weather-affected businesses in the
-              service industry. This analysis explores how stabilizing revenue
-              streams can increase EV/EBITDA multiples.
-            </p>
-            <h4>Weather-Affected Service Sectors</h4>
-            <p>
-              Several service sectors are particularly susceptible to weather
-              impacts, including airlines, airport operators, cleaning services,
-              maintenance and repair, and pest control. These industries often
-              experience fluctuations in demand and operational challenges due
-              to weather conditions.
-            </p>
-            <h4>Revenue Variability Grouping</h4>
-            <ul>
-              <li>
-                <strong>High Variability:</strong> Airlines and airport
-                operators
-              </li>
-              <li>
-                <strong>Low Variability:</strong> Cleaning, maintenance &
-                repair, and pest control services
-              </li>
-            </ul>
-            <ResponsiveContainer width="100%" height={400}>
-              <BarChart
-                data={evEbitdaData}
-                margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-              >
-                <XAxis dataKey="category" />
-                <YAxis domain={[0, 20]} />
-                <Tooltip />
-                <Legend />
-                <Bar
-                  dataKey="multiple"
-                  fill="#8884d8"
-                  name="EV/EBITDA Multiple"
-                />
-                <Bar
-                  dataKey="multipleMin"
-                  fill="#82ca9d"
-                  name="Potential Range (Min)"
-                />
-                <Bar
-                  dataKey="multipleMax"
-                  fill="#ffc658"
-                  name="Potential Range (Max)"
-                />
-              </BarChart>
-            </ResponsiveContainer>
-            <h4>Impact of Revenue Stabilization</h4>
-            <p>
-              Revenue stabilization can significantly enhance a company's
-              valuation in weather-sensitive industries. For a business with a
-              non-stabilized EV/EBITDA multiple of 9.5, achieving revenue
-              stability could potentially increase this metric by 2 to 3 points,
-              resulting in a new range of 11.5 to 12.5.
-            </p>
-            <p>
-              This uplift reflects reduced risk perception and increased
-              investor confidence associated with more predictable earnings
-              streams, particularly valuable in sectors prone to weather-related
-              fluctuations.
-            </p>
-            <h4>Connection to BrightView's Strategy</h4>
-            <p>
-              BrightView's snow removal hedge strategy aligns with this theory
-              by stabilizing revenues in a weather-sensitive service sector. By
-              implementing a put option strategy, BrightView aims to reduce
-              revenue variability, potentially leading to a higher EV/EBITDA
-              multiple and increased company valuation.
-            </p>
-          </>
+            <>
+              <h3>EV/EBITDA in Weather-Affected Services</h3>
+              <p>
+                Revenue stabilization can significantly impact a company's
+                valuation, particularly for weather-affected businesses in the
+                service industry. This analysis explores how stabilizing revenue
+                streams can increase EV/EBITDA multiples.
+              </p>
+              <h4>Weather-Affected Service Sectors</h4>
+              <p>
+                Several service sectors are particularly susceptible to weather
+                impacts, including: Farming/Agriculture, Air Transport, Recreation,
+                Construction Supplies, Hotel/Gaming, Trucking, Restaurant/Dining, Beverage (Soft),
+                Beverage (Alcoholic) and Environmental & Waste Services. These industries often
+                experience fluctuations in demand and operational challenges due to weather conditions.
+              </p>
+              <h4>Revenue Variability Grouping</h4>
+              <ul>
+                <li>
+                  <strong>High Variability:</strong> Farming/Agriculture, Air Transport, Recreation,
+                  Construction Supplies
+                </li>
+                <li>
+                  <strong>Moderate Variability:</strong> Hotel/Gaming, Trucking, Restaurant/Dining
+                </li>
+                <li>
+                  <strong>Low Variability:</strong> Beverage (Soft), Beverage (Alcoholic)
+                  and Environmental & Waste Services
+                </li>
+              </ul>
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart
+                    data={evEbitdaData}
+                    margin={{top: 20, right: 30, left: 20, bottom: 5}}
+                >
+                  <XAxis dataKey="category"/>
+                  <YAxis domain={[0, 20]}/>
+                  <Tooltip/>
+                  <Legend/>
+                  <Bar
+                      dataKey="multiple"
+                      fill="#8884d8"
+                      name="EV/EBITDA Multiple"
+                  />
+                  <Bar
+                      dataKey="multipleMin"
+                      fill="#82ca9d"
+                      name="Potential Range (Min)"
+                  />
+                  <Bar
+                      dataKey="multipleMax"
+                      fill="#ffc658"
+                      name="Potential Range (Max)"
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+              <h4>Impact of Revenue Stabilization</h4>
+              <p>
+                Revenue stabilization can significantly enhance a company's
+                valuation in weather-sensitive industries. For a business with a
+                non-stabilized EV/EBITDA multiple of 9.5, achieving revenue
+                stability could potentially increase this metric by 2 to 3 points,
+                resulting in a new range of 11.5 to 12.5.
+              </p>
+              <p>
+                This uplift reflects reduced risk perception and increased
+                investor confidence associated with more predictable earnings
+                streams, particularly valuable in sectors prone to weather-related
+                fluctuations.
+              </p>
+              <h4>Connection to BrightView's Strategy</h4>
+              <p>
+                A snow removal hedge strategy aligns with this theory
+                by stabilizing revenues in a weather-sensitive service sector. By
+                implementing a put option strategy, BrightView could reduce
+                revenue variability, potentially leading to a higher EV/EBITDA
+                multiple and increased company valuation.
+              </p>
+              <p>Source: https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/vebitda.html</p>
+            </>
         )}
 
         {activeTab === "revStabilized" && (
